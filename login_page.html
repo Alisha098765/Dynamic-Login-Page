@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style1.css">
+</head>
+
+<body>
+
+    <form method="POST" action="form.php">
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <div class="logo">
+                    <img src="./assets/img_222.png" class="img-fluid" alt="/">
+                </div>
+
+                <ul class="navbar-nav me-auto mb-0 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"><b>Home</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>About</b></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>categories</b></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><b>Contact Us</b></a>
+                    </li>
+
+
+                </ul>
+
+            </div>
+            </div>
+        </nav>
+
+
+
+
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col img">
+                    <img src="./assets/image_22.jpg" class="img-fluid" width="750px" alt="/">
+                </div>
+
+
+                <div class="col custom-margin">
+                    <form name='form1' action="#">
+                        <h1 style="color: blue">Welcome to KSD!</h1>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label"><b>Email address</b></label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp" class="form-text" style="color:blue">We'll never share your email with
+                                anyone else.</div>
+                        </div>
+
+
+
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label"><br><b>Password</b></br></label>
+                            <input type="password" class="form-control" name="Password" id="password">
+
+                            <span class='toggle' onclick="toggle()">
+                                <img src="./assets/eye.png" height=25px alt='/'>
+                            </span>
+
+
+
+
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" style="color:blue" for="exampleCheck1">Check me out</label>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" name="submit" value="Submit"
+                            onclick="validateAndAlert(event); " />
+
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+    <script>
+        function validateAndAlert(event) {
+            var input = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+            if (input == "") {
+                alert("Please enter your email address");
+                event.preventDefault();
+                return false;
+
+            } else if (!input.match(mailformat)) {
+                alert("Please enter a valid email address");
+                event.preventDefault();
+                return false;
+
+
+            } else if (password == "") {
+                alert("Please enter your password");
+                event.preventDefault();
+                return false;
+
+            } else if (!password.match(regex)) {
+                alert("Please enter a strong password!");
+                event.preventDefault();
+                return false;
+
+            } else {
+                alert("Login Successfully!");
+                return true;
+            }
+        }
+
+
+        function toggle() {
+            var password = document.querySelector("[name='Password']");
+
+            if (password.getAttribute('type') === 'password') {
+                password.setAttribute('type', 'text');
+                
+            } else {
+                password.setAttribute('type', 'password');
+                
+            }
+        }
+    </script>
+   
+
+
+</body>
+
+</html>
